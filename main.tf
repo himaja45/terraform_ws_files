@@ -1,7 +1,7 @@
 # create vpc
 resource "aws_vpc" "vpc" {
   cidr_block           = var.vpc_cidr
-  instance_tenancy     = default
+  instance_tenancy     = "default"
   enable_dns_hostnames = true
 
   tags = {
@@ -70,7 +70,7 @@ resource "aws_subnet" "private_app_subnet_az2" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.private_app_subnet_az2_cidr
   availability_zone       = data.aws_availability_zones.available_zones.names[1]
-  map_public_ip_on_launch = true 
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "${var.project_name}-${var.environment}-private-app-az2"
