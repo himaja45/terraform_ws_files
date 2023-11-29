@@ -1,6 +1,13 @@
 # environmental variables
-variable "region" {}
-variable "project_name" {}
+variable "region" {
+    type = string
+    description = "aws region"
+    default = "us-east-1"
+}
+variable "project_name" {
+    type = string
+    description = "terraform modules"
+}
 variable "environment" {}
 
 # vpc variables
